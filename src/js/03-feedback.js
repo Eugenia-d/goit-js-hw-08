@@ -11,7 +11,7 @@ filterForm.addEventListener('submit', event => {
   const formData = new FormData(event.currentTarget);
   console.log(Object.fromEntries(formData));
   filterForm.reset();
-  localStorage.removeItem(LOCALSTORAGE_KEY);
+  localStorage.setItem(LOCALSTORAGE_KEY, null);
 });
 
 const inputListener = event => {
