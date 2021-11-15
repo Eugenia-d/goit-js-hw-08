@@ -24,10 +24,11 @@ filterForm.addEventListener('input', throttle(inputListener, 500));
 function initForm() {
   const formDataString = localStorage.getItem(LOCALSTORAGE_KEY);
   if (formDataString) {
-    const formData = JSON.parse(formDataString);
-    for (const key in formData) {
-      if (Object.hasOwnProperty.call(formData, key)) {
-        filterForm.elements[key].value = formData[key];
+    const existingFormData = JSON.parse(formDataString);
+    for (const key in existingFormData) {
+      if (Object.hasOwnProperty.call(existingFormData, key)) {
+        filterForm.elements[key].value = existingFormData[key];
+        formData[key] = existingFormData[key];
       }
     }
   }
